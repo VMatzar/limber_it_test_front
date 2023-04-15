@@ -1,0 +1,87 @@
+<div class="acciones">
+  <button mat-raised-button color="warn" routerLink="/create-course">
+    Agregar
+  </button>
+  <mat-form-field>
+    <mat-label>Filtre por el nombre del curso, profesor, creditos...</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilterWithKeyUp($event)"
+      placeholder="nombre del curso, profesor, creditos..."
+      #input
+    />
+  </mat-form-field>
+</div>
+<table
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  class="order-table"
+>
+  <!-- Position Column -->
+  <ng-container matColumnDef="course_id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let iterador_de_cursos">
+      {{ iterador_de_cursos.course_id }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let iterador_de_cursos">
+      {{ iterador_de_cursos.name }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="credits">
+    <th mat-header-cell *matHeaderCellDef>Creditos</th>
+    <td mat-cell *matCellDef="let iterador_de_cursos">
+      {{ iterador_de_cursos.credits }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="teacher">
+    <th mat-header-cell *matHeaderCellDef>Profesor</th>
+    <td mat-cell *matCellDef="let iterador_de_cursos">
+      {{ iterador_de_cursos.teacher }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="assigned">
+    <th mat-header-cell *matHeaderCellDef>Asignacion</th>
+    <td mat-cell *matCellDef="let iterador_de_cursos">
+      {{ iterador_de_cursos.assigned ? "Asignado" : "No asignado" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+    <td mat-cell *matCellDef="let iterador_de_cursos">
+      <button
+        mat-mini-fab
+        color="primary"
+        aria-label="Example icon button with a menu icon"
+        (click)="deleteCourse(iterador_de_cursos.course_id)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button
+        mat-mini-fab
+        color="warn"
+        aria-label="Example icon button with a menu icon"
+        [routerLink]="['/courses-edit', iterador_de_cursos.course_id]"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">
+      No hay ninguna curso con el filtro- "{{ input.value }}"
+    </td>
+  </tr>
+</table>

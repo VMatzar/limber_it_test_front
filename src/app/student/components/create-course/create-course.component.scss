@@ -1,0 +1,72 @@
+// @import '~@angular/material/theming'
+
+// $primary: mat-palette($mat-pink)
+
+:host {
+    height: 100%;
+    background-color: #e7d0cf;
+    display: block;
+}
+
+
+// --background: linear-gradient(90deg, #1c3643, #273b47 25%, #1e5372);
+form {
+    width: 90%;
+    margin: 0px auto;
+    position: relative;
+    top: 20px;
+
+    mat-card mat-card-header {
+        display: flex;
+        justify-content: center;
+
+        mat-card-title {
+            font-weight: bold;
+            color: #e7d0cf;
+            padding-bottom: 5px;
+        }
+    }
+
+    mat-form-field {
+        width: 100%;
+
+    }
+
+    mat-card-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            color: cyan;
+            margin: 20px auto 10px;
+        }
+    }
+
+}
+
+
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+    form {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+    }
+
+}
+
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+    form {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+    }
+}

@@ -1,0 +1,77 @@
+<form [formGroup]="form" (ngSubmit)="saveCourse($event)">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> Edita el curso </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-form-field>
+          <input
+            placeholder="Nombre"
+            formControlName="name"
+            matInput
+            type="text"
+          />
+        </mat-form-field>
+        <ng-container
+          *ngIf="form.get('name')!.touched && form.get('name')!.invalid"
+        >
+          <mat-error *ngIf="form.get('name')!.hasError('required')">
+            Este campo es requerido
+          </mat-error>
+        </ng-container>
+        <ng-container
+          *ngIf="form.get('name')!.dirty && form.get('name')!.invalid"
+        >
+          <mat-error *ngIf="form.get('name')!.hasError('pattern')">
+            Solo se permiten letras
+          </mat-error>
+        </ng-container>
+      </div>
+
+      <div>
+        <mat-form-field class="fontMontserrat">
+          <mat-label>Profesor</mat-label>
+          <input
+            placeholder="profesor"
+            formControlName="teacher"
+            matInput
+            type="text"
+          />
+        </mat-form-field>
+        <ng-container
+          *ngIf="form.get('teacher')!.touched && form.get('teacher')!.invalid"
+        >
+          <mat-error *ngIf="form.get('teacher')!.hasError('required')">
+            Este campo es requerido
+          </mat-error>
+        </ng-container>
+      </div>
+
+      <div>
+        <mat-form-field class="fontMontserrat">
+          <mat-label>Creditos</mat-label>
+          <input
+            placeholder="creditos"
+            formControlName="credits"
+            matInput
+            type="text"
+          />
+        </mat-form-field>
+        <ng-container
+          *ngIf="form.get('credits')!.touched && form.get('credits')!.invalid"
+        >
+          <mat-error *ngIf="form.get('credits')!.hasError('required')">
+            Este campo es requerido
+          </mat-error>
+        </ng-container>
+      </div>
+
+      <mat-card-actions>
+        <button [disabled]="form.invalid" mat-raised-button type="submit">
+          Actualizar
+        </button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</form>

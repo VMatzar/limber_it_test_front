@@ -4,16 +4,12 @@ import { SerCoursesService } from '@core/services/ser-courses.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { AuthService } from '@core/services/auth.service';
 
-interface Status {
-  value: string;
-  viewValue: string;
-}
 @Component({
-  selector: 'app-courses-list',
-  templateUrl: './courses-list.component.html',
-  styleUrls: ['./courses-list.component.scss']
+  selector: 'app-student-courses-list',
+  templateUrl: './student-courses-list.component.html',
+  styleUrls: ['./student-courses-list.component.scss']
 })
-export class CoursesListComponent implements OnInit {
+export class StudentCoursesListComponent implements OnInit {
   courses: Course[] = [];
   displayedColumns: string[] = ['course_id', 'name', 'credits', 'teacher', 'assigned', 'actions'];
   dataSource: any;
@@ -46,7 +42,7 @@ export class CoursesListComponent implements OnInit {
   fetchCourses() {
     this.authService.getUserInformation().subscribe((user: any) => {
       this.userId = user!.uid;
-      this.sercoursesService.getAllCourse(this.userId)
+      this.sercoursesService.getAllStudentCourses(this.userId)
         .subscribe(coursesObservableUnsorted => {
           this.courses = coursesObservableUnsorted.sort(this.GetSortOrder("course_id"));
           this.dataSource = new MatTableDataSource(this.courses);

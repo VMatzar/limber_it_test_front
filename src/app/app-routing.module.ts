@@ -4,6 +4,11 @@ import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   {
+    path: '',
+    canActivate: [AdminGuard],
+    loadChildren: () => import('./student/student.module').then(m => m.StudentModule)
+  },
+  {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },

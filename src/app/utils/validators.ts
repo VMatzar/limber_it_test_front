@@ -20,18 +20,6 @@ export class MyValidators {
             return { match_password_invalid: true };
         }
     }
-    // //Método estatico para hace match con el password:
-    // static allowedRank(control: AbstractControl) {
-    //     const firstNumber = control.get('initialNumber')!.value;
-    //     const secondNumber = control.get('secondNumber')!.value;
-    //     const rank = secondNumber - firstNumber;
-    //     if (rank <= 100) {
-    //         //si no hay errores, coinciden y no es necesario realizar nada
-    //         return null
-    //     } else {
-    //         return { rank_invalid: true };
-    //     }
-    // }
 }
 function containsNumber(value: string) {
     return value.split('').find(v => isNumber(v)) !== undefined;

@@ -55,9 +55,18 @@ select {
 }
 
 
-mat-form-field {
-    display: block;
+.acciones {
+    display: flex;
+    margin: 20px auto;
     width: 90%;
-    max-width: 700px;
-    margin: 20px auto 0 auto;
+
+    button {
+        width: 10%;
+        height: 55px;
+        color: black;
+    }
+
+    mat-form-field {
+        width: 80%;
+    }
 }

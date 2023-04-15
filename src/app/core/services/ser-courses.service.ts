@@ -14,14 +14,18 @@ export class SerCoursesService {
     console.error(error);
     return throwError(() => new Error('Algo salio mal en la solicitud HTTP'));
   }
-
-  getAllCourse(id: string) {
-    return this.http.get<Course[]>(`${environment.url_api}/courses/${id}/`).pipe(
+  getAllCourses() {
+    return this.http.get<Course[]>(`${environment.url_api}/courses/`).pipe(
+      catchError(this.handleError)
+    );
+  }
+  getAllStudentCourses(studentId: string) {
+    return this.http.get<Course[]>(`${environment.url_api}/courses/${studentId}/`).pipe(
       catchError(this.handleError)
     );
   }
   getCourse(id: string) {
-    return this.http.get<Course[]>(`${environment.url_api}/courses/${id}/`).pipe(
+    return this.http.get<Course[]>(`${environment.url_api}/course/${id}/`).pipe(
       catchError(this.handleError)
     );
   }

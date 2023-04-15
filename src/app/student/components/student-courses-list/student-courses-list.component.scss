@@ -1,0 +1,62 @@
+.order-table {
+    width: 96%;
+    margin: 2%;
+}
+
+mat-button-toggle {
+    color: #fff;
+
+}
+
+.green {
+    background-color: #35d803af;
+
+}
+
+.red {
+    background-color: #c2185b;
+
+}
+
+.yellow {
+    background-color: #d8a600;
+
+}
+
+.agregar {
+    margin: 3vh 0 0 3vw;
+
+}
+
+select {
+    width: 14vw;
+    margin: 18px 0;
+    padding: 9px 5px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #c2185b;
+    border-radius: 7px;
+    color: #fff;
+    font-size: 0.8rem;
+    border: none;
+
+    &.is-green {
+        background-color: #35d803af;
+
+    }
+
+    &.is-red {
+        background-color: #c2185b;
+
+    }
+
+    &.is-yellow {
+        background-color: #d8a600;
+    }
+}
+
+mat-form-field {
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    margin: 20px auto 0 auto;
+}

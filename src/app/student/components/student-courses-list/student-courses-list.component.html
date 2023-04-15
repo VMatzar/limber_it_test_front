@@ -7,6 +7,7 @@
     #input
   />
 </mat-form-field>
+<div></div>
 <table
   mat-table
   [dataSource]="dataSource"
@@ -16,51 +17,51 @@
   <!-- Position Column -->
   <ng-container matColumnDef="course_id">
     <th mat-header-cell *matHeaderCellDef>Id</th>
-    <td mat-cell *matCellDef="let iterados_de_cursos">
-      {{ iterados_de_cursos.course_id }}
+    <td mat-cell *matCellDef="let iterador_de_cursos">
+      {{ iterador_de_cursos.course_id }}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Nombre</th>
-    <td mat-cell *matCellDef="let iterados_de_cursos">
-      {{ iterados_de_cursos.name }}
+    <td mat-cell *matCellDef="let iterador_de_cursos">
+      {{ iterador_de_cursos.name }}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="credits">
     <th mat-header-cell *matHeaderCellDef>Creditos</th>
-    <td mat-cell *matCellDef="let iterados_de_cursos">
-      {{ iterados_de_cursos.credits }}
+    <td mat-cell *matCellDef="let iterador_de_cursos">
+      {{ iterador_de_cursos.credits }}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="teacher">
     <th mat-header-cell *matHeaderCellDef>Profesor</th>
-    <td mat-cell *matCellDef="let iterados_de_cursos">
-      {{ iterados_de_cursos.teacher }}
+    <td mat-cell *matCellDef="let iterador_de_cursos">
+      {{ iterador_de_cursos.teacher }}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="assigned">
     <th mat-header-cell *matHeaderCellDef>Asignacion</th>
-    <td mat-cell *matCellDef="let iterados_de_cursos">
-      {{ iterados_de_cursos.assigned ? "Asignado" : "No asignado" }}
+    <td mat-cell *matCellDef="let iterador_de_cursos">
+      {{ iterador_de_cursos.assigned ? "Asignado" : "No asignado" }}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef>Acciones</th>
-    <td mat-cell *matCellDef="let iterados_de_cursos">
+    <td mat-cell *matCellDef="let iterador_de_cursos">
       <a
         mat-raised-button
         color="primary"
         (click)="
-          iterados_de_cursos.assigned
-            ? deleteRegistration(iterados_de_cursos.course_id)
-            : register(iterados_de_cursos.course_id)
+          iterador_de_cursos.assigned
+            ? deleteRegistration(iterador_de_cursos.course_id)
+            : register(iterador_de_cursos.course_id)
         "
-        >{{ iterados_de_cursos.assigned ? "Deasignarse" : "Asignarse" }}</a
+        >{{ iterador_de_cursos.assigned ? "Deasignarse" : "Asignarse" }}</a
       >
     </td>
   </ng-container>
