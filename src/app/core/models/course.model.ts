@@ -3,4 +3,5 @@ export interface Course {
     name: string;
     credits: Date;
     teacher: string;
+    assigned?: boolean;
 }

@@ -11,6 +11,10 @@ form {
         mat-card-header {
             display: flex;
             justify-content: center;
+            mat-card-title{
+                font-weight: bold;
+                padding-bottom: 10px;
+            }
         }
 
         mat-card-content {
@@ -24,11 +28,6 @@ form {
                 width: 70vw;
                 max-width: 460px;
             }
-
-            // mat-card-actions button {
-            //     background-image: linear-gradient(to right, #f44336, #ea3442, #df284c, #d11e54, #c2185b);
-
-            // }
         }
 
     }
@@ -36,7 +35,6 @@ form {
 }
 
 input[type="date"] {
-    margin-left: 10px;
     margin-bottom: 10px;
     width: 95%;
     appearance: none;

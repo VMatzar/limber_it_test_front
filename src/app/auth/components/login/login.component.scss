@@ -19,6 +19,11 @@ form {
     mat-card mat-card-header {
         display: flex;
         justify-content: center;
+
+        mat-card-title {
+            font-weight: bold;
+            color: #e7d0cf;
+        }
     }
 
     mat-form-field {
@@ -28,7 +33,13 @@ form {
 
     mat-card-actions {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            color: cyan;
+            margin: 20px auto 5px;
+        }
     }
 
 }

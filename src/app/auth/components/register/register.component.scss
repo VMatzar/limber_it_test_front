@@ -3,7 +3,7 @@
 // $primary: mat-palette($mat-pink)
 
 :host {
-    height: 100vh;
+    height: 100%;
     background-color: #e7d0cf;
     display: block;
 }
@@ -19,6 +19,12 @@ form {
     mat-card mat-card-header {
         display: flex;
         justify-content: center;
+
+        mat-card-title {
+            font-weight: bold;
+            color: #e7d0cf;
+            padding-bottom: 5px;
+        }
     }
 
     mat-form-field {
@@ -28,7 +34,13 @@ form {
 
     mat-card-actions {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            color: cyan;
+            margin: 20px auto 10px;
+        }
     }
 
 }
@@ -44,7 +56,7 @@ form {
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {
     form {
         position: absolute;
-        top: 20%;
+        top: 5%;
         left: 50%;
         transform: translateX(-50%);
         width: 400px;
@@ -57,7 +69,7 @@ form {
 @media screen and (min-width: 64em) {
     form {
         position: absolute;
-        top: 20%;
+        top: 5%;
         left: 50%;
         transform: translateX(-50%);
         width: 400px;
@@ -65,7 +77,6 @@ form {
 }
 
 input[type="date"] {
-    margin-left: 10px;
     margin-bottom: 10px;
     width: 95%;
     appearance: none;
@@ -81,7 +92,8 @@ input[type="date"] {
 
 .my_date_label {
     font-size: 15px;
-    font-weight: normal;
+    font-weight: bold;
+    color: #b2bec3;
 }
 
 /* Estilo para el label */

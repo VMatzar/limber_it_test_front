@@ -41,8 +41,13 @@ export class SerCoursesService {
         catchError(this.handleError)
       );
   }
-  createRegistration(course: any) {
-    return this.http.post(`${environment.url_api}/registrations`, course).pipe(
+  createRegistration(studentId: string, courseId: string) {
+    return this.http.post(`${environment.url_api}/registration`, { student_id: studentId, course_id: courseId }).pipe(
+      catchError(this.handleError)
+    );
+  }
+  deleteRegistration(studentId: string, courseId: string) {
+    return this.http.request('delete', `${environment.url_api}/registration`, { body: { student_id: studentId, course_id: courseId } }).pipe(
       catchError(this.handleError)
     );
   }

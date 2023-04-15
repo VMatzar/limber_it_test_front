@@ -6,16 +6,20 @@ import { CoursesListComponent } from './components/courses-list/courses-list.com
 
 const routes: Routes = [
   {
-    path:'',
-    component:NavComponent,
-    children:[
+    path: '',
+    component: NavComponent,
+    children: [
       {
-        path:'my-courses',
-        component:CoursesListComponent
+        path: '',
+        component: CoursesListComponent
       },
       {
-        path:'edit',
-        component:StudentEditComponent
+        path: 'my-courses',
+        component: CoursesListComponent
+      },
+      {
+        path: 'edit',
+        component: StudentEditComponent
       },
     ]
 

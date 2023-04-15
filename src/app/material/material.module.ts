@@ -15,10 +15,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [],
-  imports: [MatTableModule, MatSelectModule, MatButtonToggleModule, MatInputModule, MatSnackBarModule, MatIconModule, MatListModule, MatFormFieldModule, MatToolbarModule,
+  imports: [  MatTableModule, MatSelectModule, MatButtonToggleModule, MatInputModule, MatSnackBarModule, MatIconModule, MatListModule, MatFormFieldModule, MatToolbarModule,
     MatSidenavModule, CommonModule, MatButtonModule, MatCardModule
   ],
-  exports: [MatTableModule, MatSelectModule, MatButtonToggleModule, MatInputModule, MatSnackBarModule, MatIconModule, MatListModule, MatFormFieldModule, MatToolbarModule,
+  exports: [ MatTableModule, MatSelectModule, MatButtonToggleModule, MatInputModule, MatSnackBarModule, MatIconModule, MatListModule, MatFormFieldModule, MatToolbarModule,
     MatSidenavModule, MatButtonModule, MatCardModule
   ],
 })

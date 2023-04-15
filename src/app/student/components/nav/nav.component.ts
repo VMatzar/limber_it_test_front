@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -10,15 +10,14 @@ import { AuthService } from '@core/services/auth.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
-  ngOnInit(): void {
-  }
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     private authService: AuthService,
@@ -27,33 +26,7 @@ export class NavComponent implements OnInit {
   logout() {
     this.authService.logout()
       .then(() => {
-        this.router.navigate(['./home']);
+        this.router.navigate(['./auth/login']);
       });
   }
-
-  installEvent: any;
-  showButton: boolean = false;
-  @HostListener('window: beforeinstallprompt', ['$event'])
-  onBeforeInstallPrompt(event: Event) {
-    console.log(event);
-    event.preventDefault();
-    this.installEvent = event;
-    this.showButton = true;
-  }
-  installByUser() {
-    // if(this.installEvent){
-    this.showButton = false;
-    this.installEvent.prompt();
-    this.installEvent.userChoice
-      .then((rta: any) => {
-        if (rta.outcome === 'accepted') {
-          console.log('User accepted the A2HS prompt');
-        } else {
-          console.log('User dismissed the A2HS prompt');
-        }
-        this.installEvent = null;
-      });
-    // }
-  }
-
 }
