@@ -1,0 +1,142 @@
+<form [formGroup]="form" (ngSubmit)="register($event)">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="fontOswald">Registro</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-form-field class="fontMontserrat">
+          <mat-label>Nombre</mat-label>
+          <input
+            placeholder="nombre"
+            formControlName="name"
+            matInput
+            type="text"
+          />
+        </mat-form-field>
+        <ng-container
+          *ngIf="form.get('name')!.touched && form.get('name')!.invalid"
+        >
+          <mat-error *ngIf="form.get('name')!.hasError('required')">
+            Este campo es requerido
+          </mat-error>
+        </ng-container>
+        <ng-container
+          *ngIf="form.get('name')!.dirty && form.get('name')!.invalid"
+        >
+          <mat-error *ngIf="form.get('name')!.hasError('pattern')">
+            Solo se permiten letras
+          </mat-error>
+        </ng-container>
+      </div>
+
+      <div>
+        <mat-form-field class="fontMontserrat">
+          <mat-label>Genero</mat-label>
+          <input
+            placeholder="genero"
+            formControlName="gender"
+            matInput
+            type="text"
+          />
+        </mat-form-field>
+        <ng-container
+          *ngIf="form.get('gender')!.touched && form.get('gender')!.invalid"
+        >
+          <mat-error *ngIf="form.get('gender')!.hasError('required')">
+            Este campo es requerido
+          </mat-error>
+        </ng-container>
+      </div>
+
+      <div class="fecha">
+        <label for="date-input" class="my_date_label">Fecha de nacimiento:</label>
+        <input type="date" formControlName="date_of_birth" />
+      </div>
+      <div
+        *ngIf="date_of_birth.errors && date_of_birth!.dirty"
+        class="message_error"
+      >
+        <p *ngIf="date_of_birth!.hasError('required')">
+          Este campo es requerido!
+        </p>
+      </div>
+
+      <div>
+        <mat-form-field class="fontMontserrat">
+          <mat-label>Email</mat-label>
+          <input
+            placeholder="email"
+            formControlName="email"
+            matInput
+            type="email"
+          />
+        </mat-form-field>
+        <ng-container
+          *ngIf="form.get('email')!.touched && form.get('email')!.invalid"
+        >
+          <mat-error *ngIf="form.get('email')!.hasError('required')">
+            Este campo es requerido
+          </mat-error>
+          <mat-error *ngIf="form.get('email')!.hasError('email')">
+            Formato de correo no valido
+          </mat-error>
+        </ng-container>
+      </div>
+
+      <div>
+        <mat-form-field class="fontMontserrat">
+          <mat-label>Contraseña</mat-label>
+          <input
+            placeholder="contraseña"
+            formControlName="password"
+            matInput
+            type="password"
+          />
+        </mat-form-field>
+        <ng-container
+          *ngIf="form.get('password')!.touched && form.get('password')!.invalid"
+        >
+          <mat-error *ngIf="form.get('password')!.hasError('invalid_password')">
+            Debe tener un numero
+          </mat-error>
+          <mat-error *ngIf="form.get('password')!.hasError('minlength')">
+            Debe ingresar al menos 6 caracteres
+          </mat-error>
+          <mat-error *ngIf="form.get('password')!.hasError('required')">
+            Este campo es requerido
+          </mat-error>
+        </ng-container>
+      </div>
+
+      <div>
+        <mat-form-field class="fontMontserrat">
+          <mat-label>Confirma la contraseña</mat-label>
+          <input
+            placeholder="contraseña"
+            formControlName="confirmPassword"
+            matInput
+            type="password"
+          />
+        </mat-form-field>
+        <ng-container
+          *ngIf="form.get('confirmPassword')!.touched && form.errors"
+        >
+          <mat-error *ngIf="form.hasError('match_password_invalid')">
+            No son iguales
+          </mat-error>
+        </ng-container>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        class="fontMontserrat"
+        [disabled]="form.invalid"
+        mat-raised-button
+        type="submit"
+      >
+        Registro
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

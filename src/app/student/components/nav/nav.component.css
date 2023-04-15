@@ -1,0 +1,20 @@
+.sidenav-container {
+  height: 100%;
+  background-color: #e7d0cf;
+  /* background-image: linear-gradient(to left, #e07972, #e57068, #ea675d, #ee5d52, #f15346, #ef4a44, #ec4043, #ea3442, #e22a4a, #d82250, #cd1c56, #c2185b); */
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-image: linear-gradient(to left, #e07972, #e57068, #ea675d, #ee5d52, #f15346, #ef4a44, #ec4043, #ea3442, #e22a4a, #d82250, #cd1c56, #c2185b);
+}

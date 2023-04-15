@@ -1,0 +1,73 @@
+<form [formGroup]="form" (ngSubmit)="saveStudent($event)">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> Actualiza tu Perfil </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-form-field>
+          <input
+            placeholder="Nombre"
+            formControlName="name"
+            matInput
+            type="text"
+          />
+        </mat-form-field>
+        <ng-container
+          *ngIf="form.get('name')!.touched && form.get('name')!.invalid"
+        >
+          <mat-error *ngIf="form.get('name')!.hasError('required')">
+            Este campo es requerido
+          </mat-error>
+        </ng-container>
+        <ng-container
+          *ngIf="form.get('name')!.dirty && form.get('name')!.invalid"
+        >
+          <mat-error *ngIf="form.get('name')!.hasError('pattern')">
+            Solo se permiten letras
+          </mat-error>
+        </ng-container>
+      </div>
+
+      <div>
+        <mat-form-field class="fontMontserrat">
+          <mat-label>Genero</mat-label>
+          <input
+            placeholder="genero"
+            formControlName="gender"
+            matInput
+            type="text"
+          />
+        </mat-form-field>
+        <ng-container
+          *ngIf="form.get('gender')!.touched && form.get('gender')!.invalid"
+        >
+          <mat-error *ngIf="form.get('gender')!.hasError('required')">
+            Este campo es requerido
+          </mat-error>
+        </ng-container>
+      </div>
+
+      <div class="fecha">
+        <label for="date-input" class="my_date_label"
+          >Fecha de nacimiento:</label
+        >
+        <input type="date" formControlName="date_of_birth" />
+      </div>
+      <div
+        *ngIf="date_of_birth.errors && date_of_birth!.dirty"
+        class="message_error"
+      >
+        <p *ngIf="date_of_birth!.hasError('required')">
+          Este campo es requerido!
+        </p>
+      </div>
+
+      <mat-card-actions>
+        <button [disabled]="form.invalid" mat-raised-button type="submit">
+          Actualizar
+        </button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</form>

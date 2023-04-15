@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/limber_it_test_frontend",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

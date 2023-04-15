@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "limber-it-test-fire-services": {
+      "hosting": {
+        "limber_it_test_frontend": [
+          "limber-it-test-fire-services"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "limber-it-test-fire-services"
+  }
+}
